@@ -1,0 +1,46 @@
+{
+  "placeholderImages": [
+    {
+      "id": "property-1",
+      "description": "A modern apartment with a city view.",
+      "imageUrl": "https://images.unsplash.com/photo-1515263487990-61b07816b324?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxtb2Rlcm4lMjBhcGFydG1lbnR8ZW58MHx8fHwxNzYwNzMxNzg5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "modern apartment"
+    },
+    {
+      "id": "property-2",
+      "description": "A cozy suburban house with a garden.",
+      "imageUrl": "https://images.unsplash.com/photo-1592595896616-c37162298647?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzdWJ1cmJhbiUyMGhvdXNlfGVufDB8fHx8MTc2MDczMTc4OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "suburban house"
+    },
+    {
+      "id": "property-3",
+      "description": "A stylish loft in the downtown area.",
+      "imageUrl": "https://images.unsplash.com/photo-1658211342697-58df7f68ed0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxzdHlsaXNoJTIwbG9mdHxlbnwwfHx8fDE3NjA3MzQzNDh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "stylish loft"
+    },
+    {
+      "id": "property-4",
+      "description": "A spacious family home with a pool.",
+      "imageUrl": "https://images.unsplash.com/photo-1606932250069-62f395a08602?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxmYW1pbHklMjBob21lfGVufDB8fHx8MTc2MDczMTg1MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "family home"
+    },
+    {
+      "id": "property-5",
+      "description": "A beachfront villa with an ocean view.",
+      "imageUrl": "https://images.unsplash.com/photo-1710856790522-d7308ebf8d21?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8YmVhY2hmcm9udCUyMHZpbGxhfGVufDB8fHx8MTc2MDczNDM0N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "beachfront villa"
+    },
+    {
+      "id": "property-6",
+      "description": "A rustic cabin in the woods.",
+      "imageUrl": "https://images.unsplash.com/photo-1634441213839-ff10f912adc0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cnVzdGljJTIwY2FiaW58ZW58MHx8fHwxNzYwNzM0MzQ3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "rustic cabin"
+    },
+    {
+      "id": "profile-1",
+      "description": "Default user profile picture.",
+      "imageUrl": "https://images.unsplash.com/photo-1590086782792-42dd2350140d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxwZXJzb24lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjA3MzA4MTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "person portrait"
+    }
+  ]
+}￼Enter
