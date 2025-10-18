@@ -1,1 +1,165 @@
-{})
+{}{
+  "entities": {
+    "User": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "User",
+      "type": "object",
+      "description": "Represents a user in the RentalSpot application.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the user entity."
+        },
+        "name": {
+          "type": "string",
+          "description": "User's full name."
+        },
+        "email": {
+          "type": "string",
+          "description": "User's email address.",
+          "format": "email"
+        },
+        "profilePictureUrl": {
+          "type": "string",
+          "description": "URL of the user's profile picture.",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "email"
+      ]
+    },
+    "Property": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Property",
+      "type": "object",
+      "description": "Represents a property listing in the RentalSpot application.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the property entity."
+        },
+        "userId": {
+          "type": "string",
+          "description": "Reference to User. (Relationship: User 1:N Property)"
+        },
+        "title": {
+          "type": "string",
+          "description": "Title of the property listing."
+        },
+        "description": {
+          "type": "string",          "description": "Description of the property."
+        },
+        "country": {
+          "type": "string",
+          "description": "Country where the property is located."
+        },
+        "city": {
+          "type": "string",
+          "description": "City where the property is located."
+        },
+        "rent": {
+          "type": "number",
+          "description": "Rental price of the property."
+        },
+        "bedrooms": {
+          "type": "number",
+          "description": "Number of bedrooms in the property."
+        },
+        "bathrooms": {
+          "type": "number",
+          "description": "Number of bathrooms in the property."
+        },
+        "phoneNumber": {
+          "type": "string",
+          "description": "Contact phone number for the property."
+        },
+        "whatsappNumber": {
+          "type": "string",
+          "description": "WhatsApp number for contacting about the property."
+        },
+        "imageUrl": {
+          "type": "string",
+          "description": "URL of the property image.",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "id",
+        "userId",
+        "title",
+        "description",
+        "country",
+        "city",
+        "rent",
+        "bedrooms",
+        "bathrooms"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password",
+      "anonymous"
+    ]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/users/{userId}",
+        "definition": {
+          "entityName": "User",
+          "schema": {
+            "$ref": "#/backend/entities/User"
+          },
+          "description": "Stores user profile information.  Path-based ownership.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier for the user."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/users/{userId}/properties/{propertyId}",
+        "definition": {
+          "entityName": "Property",
+          "schema": {
+            "$ref": "#/backend/entities/Property"
+          },
+          "description": "Stores properties owned by a specific user. Path-based ownership to secure user-specific properties. Includes denormalized 'userId' for authorization independence.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier for the user."
+            },
+            {
+              "name": "propertyId",
+              "description": "The unique identifier for the property."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/properties/{propertyId}",
+        "definition": {
+          "entityName": "Property",
+          "schema": {
+            "$ref": "#/backend/entities/Property"
+          },
+          "description": "Stores all properties to display for the home page. Includes denormalized 'userId' for authorization independence to prevent needing a get() to determine the owner.",
+          "params": [
+            {
+              "name": "propertyId",
+              "description": "The unique identifier for the property."
+            }
+          ]
+        }
+      }
+    ],
+    "reasoning": "The Firestore structure is designed to provide a secure, scalable, and easily debuggable solution for the RentalSpot application, adhering to the principles of Authorization Independence, Clarity of Intent, DBAC (Database-Based Access Control), and QAPs (Rules are Not Filters). Authorization Independence is achieved through denormalization of the `userId` in the `properties` collection.  This design allows rules to validate writes based solely on the data within the document being written, and the authenticated user's ID, without needing to perform costly and brittle `get()` operations to parent documents. This denormalization also makes batch operations more reliable. Segregation is achieved by storing user-specific properties under `/users/{userId}/properties/{propertyId}`, ensuring that only the owner can manage these properties directly. The home page listing uses a separate collection `/properties` and denormalizes the owner's `userId` within each property document, to allow for querying all properties without needing to query by user. The DBAC principle is followed, as roles are derived solely from `request.auth.uid`.  QAPs are supported because `list` operations are secured by the path structure and denormalized `userId`, enabling efficient queries without exposing private data."
+  }
+      }
