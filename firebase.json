@@ -1,7 +1,4 @@
 {
-  "projects": {
-    "default": "get-296e5"
-  },
   "hosting": {
     "source": ".",
     "ignore": [
